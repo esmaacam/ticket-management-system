@@ -1,0 +1,61 @@
+@TicketApi_HostAddress = http://localhost:5156
+
+GET {{TicketApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+POST https://localhost:7178/api/users
+Content-Type: application/json
+
+{
+  "name": "Esma Çamurluoğlu",
+  "email": "esma@example.com"
+}
+###
+PUT https://localhost:7178/api/users/2
+Content-Type: application/json
+
+{
+  "name": "Mehmet DEMİR GÜNCELLENDİ",
+  "email": "mehmetyeni@example.com"
+}
+
+###
+DELETE https://localhost:7178/api/users/5
+
+###
+POST https://localhost:7178/api/tickets
+Content-Type: application/json
+
+{
+  "title": "Login Sorunu",
+  "description": "Kullanıcı giriş yapamıyor.",
+  "createdBy": 1,
+  "assignedTo": 2,
+  "status": "Open"
+}
+
+###
+
+POST https://localhost:7178/api/tickets
+Content-Type: application/json
+
+{
+  "title": "Login Sorunu",
+  "description": "Kullanıcı sisteme giriş yapamıyor.",
+  "createdBy": 1,
+  "assignedTo": 2,
+  "status": "Open"
+}
+
+###
+POST https://localhost:7178/api/tickets
+Content-Type: application/json
+
+{
+  "title": "Şifre Sıfırlama",
+  "description": "Kullanıcı şifresini unuttu.",
+  "createdBy": 2,
+  "assignedTo": 1,
+  "status": "Open"
+}
