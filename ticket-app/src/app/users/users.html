@@ -1,0 +1,31 @@
+<h2>Kullanıcılar</h2>
+
+<p>Toplam kullanıcı: {{ users().length }}</p>
+
+<ul>
+  @for (user of users(); track user.id) {
+    <li>
+      <input [(ngModel)]="user.name" placeholder="Ad Soyad">
+      <input [(ngModel)]="user.email" placeholder="Email">
+
+      <button (click)="updateUser(user)">Güncelle</button>
+      <button (click)="deleteUser(user.id)">Sil</button>
+    </li>
+  }
+</ul>
+
+<hr>
+
+<h3>Yeni Kullanıcı Ekle</h3>
+
+<label>Ad Soyad:</label>
+<input [(ngModel)]="newUser.name" placeholder="Ad Soyad">
+
+<br><br>
+
+<label>Email:</label>
+<input [(ngModel)]="newUser.email" placeholder="Email">
+
+<br><br>
+
+<button (click)="createUser()">Kullanıcı Ekle</button>

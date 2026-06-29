@@ -1,0 +1,48 @@
+<h2>Ticket Listesi</h2>
+
+<p>Toplam ticket: {{ tickets().length }}</p>
+
+<ul>
+  @for (ticket of tickets(); track ticket.id) {
+    <li>
+      <b>{{ ticket.title }}</b> - {{ ticket.status }}
+
+      <button (click)="deleteTicket(ticket.id)">
+        Sil
+      </button>
+
+      <button (click)="updateTicket(ticket)">
+  Durum Değiştir
+</button>
+
+      <br>
+
+      {{ ticket.description }}
+    </li>
+  }
+</ul>
+
+<hr>
+
+<h3>Yeni Ticket Oluştur</h3>
+
+<label>Başlık:</label>
+<input [(ngModel)]="newTicket.title" placeholder="Başlık yaz">
+
+<br><br>
+
+<label>Açıklama:</label>
+<input [(ngModel)]="newTicket.description" placeholder="Açıklama yaz">
+
+<br><br>
+
+<label>Durum:</label>
+<select [(ngModel)]="newTicket.status">
+  <option value="Open">Open</option>
+  <option value="In Progress">In Progress</option>
+  <option value="Closed">Closed</option>
+</select>
+
+<br><br>
+
+<button (click)="createTicket()">Kaydet</button>
